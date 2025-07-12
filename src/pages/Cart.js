@@ -4,10 +4,12 @@ import { useCart } from '../context/CartContext';
 import { Trash2, Minus, Plus } from 'lucide-react';
 
 const Cart = () => {
-  const cart = useCart ? useCart() : null;
+  const cart = useCart();
+  
   if (!cart) {
     return <div className="text-center py-16 text-red-600">Cart is not available. Please refresh the page.</div>;
   }
+  
   const { items, removeFromCart, updateQuantity, getTotalPrice, clearCart } = cart;
 
   const handleQuantityChange = (cakeId, newQuantity) => {
